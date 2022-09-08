@@ -4,10 +4,10 @@ echo "Creating the persistent volumn claim..."
 kubectl apply -f ./kubernetes/dev/postgres-persistent-volume-claim.yaml
 
 echo "Creating database password secret..."
-kubectl create secret generic postgres_password --from-literal=POSTGRES_PASSWORD=codetogive_2022
+kubectl create secret generic postgres-password --from-literal=POSTGRES_PASSWORD=codetogive_2022
 
 echo "Creating Postgres deployment and ip service..."
-kubectl apply -f ./kubernetes/dev/postgres-deployment.yaml 
+kubectl apply -f ./kubernetes/dev/postgres-deployment.yaml
 kubectl apply -f ./kubernetes/dev/postgres-cluster-ip-service.yaml
 
 echo "Creating Redis deployment and ip service..."

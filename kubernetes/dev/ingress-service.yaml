@@ -16,4 +16,4 @@ spec:
               service:
                 name: server-cluster-ip-service
                 port:
-                  number: 80
+                  number: 8080

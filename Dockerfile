@@ -24,4 +24,4 @@ RUN poetry config virtualenvs.create false \
 COPY . /code
 
 # Run the server
-CMD uvicorn server.main:app --host 0.0.0.0 --port 80
+CMD uvicorn server.main:app --host 0.0.0.0 --port 8080

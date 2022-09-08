@@ -14,14 +14,14 @@ spec:
     spec:
       volumes:
         - name: postgres-storage
-          persistentVolumnClaim:
+          persistentVolumeClaim:
             claimName: postgres-persistent-volume-claim
       containers:
         - name: postgres
           image: postgres
           ports:
             - containerPort: 5432
-          volumnMounts:
+          volumeMounts:
             - name: postgres-storage
               mountPath: /var/lib/postgresql/data
               subPath: postgres
@@ -29,5 +29,5 @@ spec:
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgres_password
+                  name: postgres-password
                   key: POSTGRES_PASSWORD
