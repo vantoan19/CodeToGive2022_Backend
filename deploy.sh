@@ -4,4 +4,4 @@ docker build -t vantoan11/codetogive2022-api:$SHA -f ./server/Dockerfile ./serve
 echo "Pushing api image into docker hub..."
 docker push vantoan11/codetogive2022-api:$SHA
 kubectl apply -f kubernetes
-kubectl set image deployment/api-deployment api=vantoan11/codetogive2022-api:$SHA
+kubectl set image deployments/api-deployment api=vantoan11/codetogive2022-api:$SHA

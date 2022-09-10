@@ -13,7 +13,7 @@ spec:
         component: api
     spec:
       containers:
-        - name: server
+        - name: api
           image: vantoan11/codetogive2022-api
           ports:
             - containerPort: 80
