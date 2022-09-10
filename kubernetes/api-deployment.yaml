@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: vantoan11/codetogive2022_api
+          image: vantoan11/codetogive2022-api
           ports:
             - containerPort: 80
           env:
