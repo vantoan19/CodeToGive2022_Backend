@@ -22,7 +22,7 @@ before_install:
   - gcloud config set compute/zone europe-central2-a
   - gcloud container clusters get-credentials codetogive-cluster
   - echo "Login into Docker..."
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_PASSWORD" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - echo "Building test image..."
   - docker build -t vantoan11/server-test-image -f ./server/Dockerfile.dev ./server
 
