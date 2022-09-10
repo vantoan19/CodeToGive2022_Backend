@@ -20,6 +20,10 @@ venv
 docs.zip
 archive.zip
 
+# secret files
+github_token
+service-account.json
+
 # vim temporary files
 *~
 .*.sw?
