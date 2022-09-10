@@ -1,4 +1,3 @@
-#!/bin/bash
 echo "Building api image..."
 echo "docker build -t vantoan11/codetogive2022-api:$SHA -f ./server/Dockerfile ./server"
 docker build -t vantoan11/codetogive2022-api:$SHA -f ./server/Dockerfile ./server
