@@ -26,5 +26,5 @@ spec:
         - name: WORDPRESS_DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-password
-              key: MYSQL_PASSWORD
+              name: mysql-root-password
+              key: MYSQL_ROOT_PASSWORD
