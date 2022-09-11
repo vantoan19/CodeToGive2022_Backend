@@ -4,20 +4,36 @@ services:
     build: 
       dockerfile: Dockerfile.dev
       context: ./server
+    restart: always
     volumes:
       - ./server/server:/code/server
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
-      - PGUSER=postgres
-      - PGHOST=postgres
-      - PGDATABASE=postgres
-      - POSTGRES_PASSWORD=postgres_password
-      - PGPORT=5432
-  postgres:
-    image: 'postgres:latest'
+      - MYSQL_USER=mysql
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_PASSWORD=mysql
+      - MYSQL_DATABASE=mysql
+  wordpress:
+    image: 'wordpress:latest'
+    restart: always
+    depends_on:
+      - mysql
+    ports:
+      - '80:80'
     environment:
-      - POSTGRES_PASSWORD=postgres_password
+      - WORDPRESS_DB_HOST=mysql
+      - WORDPRESS_DB_USER=mysql
+      - WORDPRESS_DB_PASSWORD=mysql
+      - WORDPRESS_DB_NAME=mysql
+  mysql:
+    image: 'mysql:latest'
+    restart: always
+    environment:
+      - MYSQL_USER=mysql
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_PASSWORD=mysql
+      - MYSQL_DATABASE=mysql
   redis:
     image: 'redis:latest'
   nginx:
@@ -28,5 +44,4 @@ services:
       dockerfile: Dockerfile
       context: ./nginx
     ports:
-      - '3050:80'
-
+      - '8080:80'

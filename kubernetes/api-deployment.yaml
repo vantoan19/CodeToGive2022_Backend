@@ -22,16 +22,17 @@ spec:
               value: redis-cluster-ip-service
             - name: REDIS_PORT
               value: '6379'
-            - name: PGUSER
-              value: postgres
-            - name: PGHOST
-              value: postgres-cluster-ip-service
-            - name: PGPORT
-              value: '5432'
-            - name: PGDATABASE
-              value: postgres
-            - name: POSTGRES_PASSWORD
+            - name: MYSQL_USER
+              value: mysql
+            - name: MYSQL_DATABASE
+              value: mysql
+            - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgres-password
-                  key: POSTGRES_PASSWORD
+                  name: mysql-password
+                  key: MYSQL_PASSWORD
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-root-password
+                  key: MYSQL_ROOT_PASSWORD

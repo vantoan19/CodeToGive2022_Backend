@@ -6,7 +6,10 @@ metadata:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: 'true'
     nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.org/ssl-services: 'wordpress'
 spec:
+  tls:
+    - secretName: tls-certificate
   rules:
     - http:
         paths:
@@ -15,6 +18,13 @@ spec:
             backend:
               service:
                 name: api-cluster-ip-service
+                port:
+                  number: 80
+          - path: /wordpress/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: wordpress-node-port
                 port:
                   number: 80
           - path: /?(.*)

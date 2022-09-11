@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+  labels:
+    component: wordpress
+spec:
+  selector:
+    matchLabels:
+      component: wordpress
+  template:
+    metadata:
+      labels:
+        component: wordpress
+    spec:
+      containers:
+      - name: wordpress
+        image: wordpress:latest
+        env:
+        - name: MYSQL_USER
+          value: mysql
+        - name: MYSQL_DATABASE
+          value: mysql
+        - name: MYSQL_PORT
+          value: '3306'
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-root-password
+              key: MYSQL_ROOT_PASSWORD
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-password
+              key: MYSQL_PASSWORD
