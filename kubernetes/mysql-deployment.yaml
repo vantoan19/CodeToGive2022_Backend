@@ -18,7 +18,7 @@ spec:
             claimName: mysql-persistent-volume-claim
       containers:
         - name: mysql
-          image: mysql:latest
+          image: mysql
           ports:
             - containerPort: 3306
           volumeMounts:
