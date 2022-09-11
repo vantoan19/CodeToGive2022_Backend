@@ -1,21 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress
+  name: wordpress-deployment
   labels:
     component: wordpress
 spec:
   selector:
     matchLabels:
       component: wordpress
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
         component: wordpress
     spec:
       containers:
-      - name: wordpress:4.8-apache
-        image: wordpress
+      - image: wordpress:4.8-apache
+        name: wordpress
         env:
         - name: WORDPRESS_DB_HOST
           value: mysql-cluster-ip-service
@@ -24,6 +26,9 @@ spec:
             secretKeyRef:
               name: mysql-root-password
               key: MYSQL_ROOT_PASSWORD
+        ports:
+        - containerPort: 80
+          name: wordpress
         volumeMounts:
         - name: wordpress-persistent-storage
           mountPath: /var/www/html
