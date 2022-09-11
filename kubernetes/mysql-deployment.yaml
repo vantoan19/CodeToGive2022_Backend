@@ -28,5 +28,5 @@ spec:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: mysql-password
+                  name: mysql-root-password
                   key: MYSQL_ROOT_PASSWORD
