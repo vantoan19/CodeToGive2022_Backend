@@ -7,7 +7,7 @@ CodeToGive Backend Server is a Python REST API server powered by FastAPI framewo
 ### Database
 - Postgresql
 - Redis
-### Containerirzation
+### Containerization
 - Docker
 - Docker compose (development)
 - Kubernetes (production)
@@ -42,4 +42,4 @@ To visit the OpenAPI UI: https://34.116.151.108/docs
 This is a hackathon project. Once it's public, depends on further decisions of the hackathon organization and team member, pull requests might be welcome.
 
 ## License
-[MIT](https://choosealicense.com/license/mit/)
+[MIT](https://choosealicense.com/licenses/mit/)

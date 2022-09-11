@@ -1,6 +1,5 @@
 echo "Building api image..."
-docker build -t vantoan11/codetogive2022-api:$SHA -f ./server/Dockerfile ./server
-docker build -t vantoan11/codetogive2022-api:latest -f ./server/Dockerfile ./server
+docker build -t vantoan11/codetogive2022-api:$SHA -t vantoan11/codetogive2022-api:latest -f ./server/Dockerfile ./server
 echo "Pushing api image into docker hub..."
 docker push vantoan11/codetogive2022-api:$SHA
 docker push vantoan11/codetogive2022-api:latest
