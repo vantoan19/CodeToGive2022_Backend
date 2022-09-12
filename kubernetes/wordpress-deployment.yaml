@@ -21,11 +21,15 @@ spec:
         env:
         - name: WORDPRESS_DB_HOST
           value: mysql-cluster-ip-service
+        - name: WORDPRESS_DB_NAME
+          value: mysql
+        - name: WORDPRESS_DB_USER
+          value: mysql
         - name: WORDPRESS_DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-root-password
-              key: MYSQL_ROOT_PASSWORD
+              name: mysql-password
+              key: MYSQL_PASSWORD
         ports:
         - containerPort: 80
           name: wordpress
