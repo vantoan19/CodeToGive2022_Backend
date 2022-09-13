@@ -11,7 +11,8 @@ spec:
   tls:
     - secretName: tls-certificate
   rules:
-    - http:
+    - host: codetogive.canary
+      http:
         paths:
           - path: /api/?(.*)
             pathType: Prefix
@@ -26,7 +27,7 @@ spec:
               service:
                 name: client-cluster-ip-service
                 port:
-                  number: 3000
+                  number: 80
           - path: /?(.*)
             pathType: Prefix
             backend:
