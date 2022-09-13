@@ -19,19 +19,39 @@ spec:
           name: wordpress
           env:
           - name: WORDPRESS_DB_HOST
-            value: mysql:3306
+            value: 127.0.0.1:3306
+          - name: WORDPRESS_DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: cloudsql-db-credentials
+                key: username
           - name: WORDPRESS_DB_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: mysql-root-password
-                key: MYSQL_ROOT_PASSWORD
+                name: cloudsql-db-credentials
+                key: password
           ports:
             - containerPort: 80
               name: wordpress
           volumeMounts:
             - name: wordpress-persistent-storage
               mountPath: /var/www/html
+        - name: cloudsql-proxy
+          image: gcr.io/cloudsql-docker/gce-proxy:1.11
+          command: ["/cloud_sql_proxy",
+                    "-instances=abiding-cycle-362117:europe-central2:codetogive-mysql-instance=tcp:3306",
+                    "-credential_file=/secrets/cloudsql/key.json"]
+          securityContext:
+            runAsUser: 2
+            allowPrivilegeEscalation: false
+          volumeMounts:
+            - name: cloudsql-instance-credentials
+              mountPath: /secrets/cloudsql
+              readOnly: true
       volumes:
         - name: wordpress-persistent-storage
           persistentVolumeClaim:
             claimName: wordpress-persistent-volume-claim
+        - name: cloudsql-instance-credentials
+          secret:
+            secretName: cloudsql-instance-credentials

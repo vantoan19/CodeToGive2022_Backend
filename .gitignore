@@ -20,6 +20,7 @@ venv
 docs.zip
 archive.zip
 .history
+backup
 
 # secret files
 github_token
