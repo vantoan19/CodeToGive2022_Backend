@@ -11,8 +11,9 @@ RUN npm ci
 # Rebuild the source code only when needed
 FROM node:18-alpine AS builder
 WORKDIR /client
-COPY --from=deps /client/node_modules ./node_modules
 COPY . .
+RUN rm -rf ./node_modules
+COPY --from=deps /client/node_modules ./node_modules
 
 RUN npm run build
 
@@ -31,6 +32,7 @@ COPY --from=builder /client/public ./public
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
+
 COPY --from=builder --chown=nextjs:nodejs /client/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /client/.next/static ./.next/static
 
