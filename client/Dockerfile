@@ -23,7 +23,6 @@ RUN npm run export
 FROM nginx
 
 FROM nginx:alpine
-EXPOSE 3000
 COPY --from=builder /client/out /usr/share/nginx/html
 COPY --from=builder /client/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /client/next-routes.conf /usr/share/nginx/next-routes.conf
