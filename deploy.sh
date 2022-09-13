@@ -6,6 +6,7 @@ docker push vantoan11/codetogive2022-api:$SHA
 docker push vantoan11/codetogive2022-api:latest
 docker push vantoan11/codetogive2022-client:$SHA
 docker push vantoan11/codetogive2022-client:latest
+kubectl delete all --all
 kubectl apply -f kubernetes
 kubectl set image deployments/api-deployment api=vantoan11/codetogive2022-api:$SHA
 kubectl set image deployments/client-deployment client=vantoan11/codetogive2022-client:$SHA

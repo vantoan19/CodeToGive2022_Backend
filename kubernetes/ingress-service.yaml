@@ -11,8 +11,7 @@ spec:
   tls:
     - secretName: tls-certificate
   rules:
-    - host: codetogive.canary
-      http:
+    - http:
         paths:
           - path: /api/?(.*)
             pathType: Prefix
