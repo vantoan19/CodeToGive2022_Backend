@@ -18,7 +18,6 @@ before_install:
   - gcloud components update kubectl
   - echo "Login into Google Cloud..."
   - gcloud auth activate-service-account --key-file service-account.json
-  - kubectl create secret generic cloudsql-instance-credentials --from-file service-account.json
   - gcloud config set project abiding-cycle-362117
   - gcloud config set compute/zone europe-central2-a
   - gcloud container clusters get-credentials codetogive-cluster
