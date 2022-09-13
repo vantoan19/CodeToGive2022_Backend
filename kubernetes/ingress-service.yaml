@@ -20,17 +20,10 @@ spec:
                 name: api-cluster-ip-service
                 port:
                   number: 80
-          - path: /wordpress/?(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: wordpress-node-port
-                port:
-                  number: 80
           - path: /?(.*)
             pathType: Prefix
             backend:
               service:
-                name: api-cluster-ip-service
+                name: wordpress-node-port
                 port:
                   number: 80
