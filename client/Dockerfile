@@ -4,8 +4,9 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /client
 
 # Install dependencies based on the preferred package manager
-COPY package.json package-lock.json*  ./
+COPY package.json package-lock.json* ./
 RUN npm ci
+COPY nginx.conf ./
 
 
 # Rebuild the source code only when needed
@@ -14,32 +15,15 @@ WORKDIR /client
 COPY . .
 RUN rm -rf ./node_modules
 COPY --from=deps /client/node_modules ./node_modules
+COPY --from=deps /client/nginx.conf ./
 
-RUN npm run build
+RUN npm run export
 
 # Production image, copy all the files and run next
-FROM node:16-alpine AS runner
-WORKDIR /client
+FROM nginx
 
-ENV NODE_ENV production
-# Uncomment the following line in case you want to disable telemetry during runtime.
-# ENV NEXT_TELEMETRY_DISABLED 1
-
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
-
-COPY --from=builder /client/public ./public
-
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-
-COPY --from=builder --chown=nextjs:nodejs /client/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /client/.next/static ./.next/static
-
-USER nextjs
-
+FROM nginx:alpine
 EXPOSE 3000
-
-ENV PORT 3000
-
-CMD ["node", "server.js"]
+COPY --from=builder /client/out /usr/share/nginx/html
+COPY --from=builder /client/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /client/next-routes.conf /usr/share/nginx/next-routes.conf
