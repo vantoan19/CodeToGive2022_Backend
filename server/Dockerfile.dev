@@ -11,12 +11,12 @@ ENV PYTHONFAULTHANDLER=1 \
 RUN apk add --no-cache gcc libffi-dev musl-dev postgresql-dev
 RUN pip install "poetry==$POETRY_VERSION"
 
-WORKDIR /code
-COPY poetry.lock pyproject.toml /code/
+WORKDIR /server
+COPY poetry.lock pyproject.toml /server/
 
 RUN poetry config virtualenvs.create false \
   && poetry install --no-interaction --no-ansi
 
-COPY . /code/
+COPY . /server/
 
 CMD uvicorn server.main:app --host 0.0.0.0 --port 80 --reload

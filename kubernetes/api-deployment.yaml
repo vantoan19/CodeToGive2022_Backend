@@ -23,14 +23,17 @@ spec:
             - name: REDIS_PORT
               value: '6379'
             - name: MYSQL_USER
-              value: mysql
+              valueFrom:
+                secretKeyRef:
+                  name: cloudsql-db-credentials
+                  key: username
             - name: MYSQL_DATABASE
-              value: mysql
+              value: codetogive
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: mysql-password
-                  key: MYSQL_PASSWORD
+                  name: cloudsql-db-credentials
+                  key: password
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:

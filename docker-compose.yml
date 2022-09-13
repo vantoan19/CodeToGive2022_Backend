@@ -6,7 +6,7 @@ services:
       context: ./server
     restart: always
     volumes:
-      - ./server/server:/code/server
+      - ./server/server:/server/server
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
@@ -14,6 +14,14 @@ services:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_PASSWORD=mysql
       - MYSQL_DATABASE=mysql
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    restart: always
+    volumes:
+      - /client/node_modules
+      - ./client:/client
   wordpress:
     image: 'wordpress:latest'
     restart: always
