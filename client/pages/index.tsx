@@ -6,7 +6,7 @@ const Home: NextPage = () => {
   const [message, setMessage] = useState(null);
   
   useEffect(() => {
-    fetch('/api/')
+    fetch('/api/v1/hello')
       .then((res) => res.json())
       .then((data) => {
         setMessage(data.message)
