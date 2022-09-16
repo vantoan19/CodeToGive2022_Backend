@@ -5,4 +5,4 @@ checkout_client:
 	cd client && sh checkout.sh
 
 dev:
-	docker compose up --build
+	make export_token && make checkout_client && docker compose up --build
