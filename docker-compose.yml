@@ -22,6 +22,8 @@ services:
     volumes:
       - ./client/CodeToGive2022_Frontend:/client
       - /client/node_modules
+    environment:
+      - HOST=http://34.116.151.108
   wordpress:
     image: 'wordpress:latest'
     restart: always
