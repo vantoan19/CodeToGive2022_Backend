@@ -3,12 +3,14 @@ FROM node:18-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /client
 # Install dependencies based on the preferred package manager
-COPY package.json package-lock.json*  ./
-RUN npm ci
+COPY ./CodeToGive2022_Frontend/package.json ./CodeToGive2022_Frontend/package-lock.json*  ./
+RUN npm install
+
+
 # Rebuild the source code only when needed
 FROM node:18-alpine AS builder
 WORKDIR /client
-COPY . .
+COPY ./CodeToGive2022_Frontend/ .
 RUN rm -rf ./node_modules
 COPY --from=deps /client/node_modules ./node_modules
 

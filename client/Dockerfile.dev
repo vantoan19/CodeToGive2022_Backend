@@ -1,6 +1,6 @@
 FROM node:18-alpine
 WORKDIR /client
-COPY ./package.json package-lock.json* ./
+COPY ./CodeToGive2022_Frontend/package.json ./CodeToGive2022_Frontend/package-lock.json* ./
 RUN npm install
 COPY . .
 CMD npm run dev

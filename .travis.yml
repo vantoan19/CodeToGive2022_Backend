@@ -25,6 +25,8 @@ before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - echo "Building test image..."
   - docker build -t vantoan11/server-test-image -f ./server/Dockerfile.dev ./server
+  - echo "Checking out frontend repo..."
+  - make checkout_client
 
 script:
   - echo "Running tests using Pytest..."

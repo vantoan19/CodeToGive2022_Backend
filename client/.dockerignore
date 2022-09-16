@@ -1,0 +1,8 @@
+.git/
+.github/
+.gitignore
+.next/                # Existing Next.js builds
+.dockerignore
+.vscode/
+Dockerfile
+node_modules/         # Installed inside container
