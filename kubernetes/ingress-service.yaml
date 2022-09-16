@@ -25,7 +25,7 @@ spec:
               service:
                 name: client-cluster-ip-service
                 port:
-                  number: 80
+                  number: 3000
           - path: /_next/?(.*)
             pathType: Prefix
             backend:

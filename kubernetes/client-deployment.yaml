@@ -16,4 +16,4 @@ spec:
         - name: client
           image: vantoan11/codetogive2022-client
           ports:
-            - containerPort: 80
+            - containerPort: 3000
