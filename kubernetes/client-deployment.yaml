@@ -19,4 +19,4 @@ spec:
             - containerPort: 3000
           env:
             - name: HOST 
-              value: ""
+              value: api-cluster-ip-service
