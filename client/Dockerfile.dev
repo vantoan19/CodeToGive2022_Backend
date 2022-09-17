@@ -2,7 +2,6 @@ FROM node:18-alpine
 RUN apk add --no-cache libc6-compat
 WORKDIR /client
 COPY ./CodeToGive2022_Frontend/package.json ./
-COPY ./.env.development.local ./
 RUN npm install
 COPY ./CodeToGive2022_Frontend/ ./
-CMD npm run dev
+CMD npm run start
