@@ -8,7 +8,7 @@ ENV PYTHONFAULTHANDLER=1 \
   PIP_DEFAULT_TIMEOUT=100 \
   POETRY_VERSION=1.2.0
 
-RUN apk add --no-cache gcc libffi-dev musl-dev postgresql-dev
+RUN apk add --no-cache gcc libffi-dev musl-dev python3-dev mariadb-connector-c-dev
 RUN pip install "poetry==$POETRY_VERSION"
 
 WORKDIR /server

@@ -17,6 +17,3 @@ spec:
           image: vantoan11/codetogive2022-client
           ports:
             - containerPort: 3000
-          env:
-            - name: HOST 
-              value: api-cluster-ip-service

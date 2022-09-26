@@ -4,4 +4,4 @@ WORKDIR /client
 COPY ./CodeToGive2022_Frontend/package.json ./
 RUN npm install
 COPY ./CodeToGive2022_Frontend/ ./
-CMD npm run start
+CMD npm run dev
