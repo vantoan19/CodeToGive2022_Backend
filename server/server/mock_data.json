@@ -1,0 +1,89 @@
+{
+    "mock_jobs": [
+        {
+            "id": 1,
+            "label": "Librarian",
+            "match_value": 72,
+            "details": {
+                "company_name": "Canary inc.",
+                "about": "This company is legit, no cap, 4real",
+                "description": "U will need to do this, and that, this skill, that skill"
+            },
+            "image": "https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bGlicmFyeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+        },
+        {
+            "id": 2,
+            "label": "Recptionist",
+            "match_value": 60,
+            "details": {
+                "company_name": "Dunder Mifflin Inc.",
+                "about": "Paper company",
+                "description": "Answer the phone, make some copies,etc."
+            },
+            "image": "https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVjZXB0aW9uaXN0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+        },
+        {
+            "id": 3,
+            "label": "Bartender",
+            "match_value": 90,
+            "details": {
+                "company_name": "Black Box",
+                "about": "Club",
+                "description": "Make and serves drinks"
+            },
+            "image": "https://images.unsplash.com/photo-1595751866979-de6e9d606220?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFydGVuZGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+        }
+    ],
+    "mock_assessment": [
+        {
+          "title": "Work motivation test",
+          "url": "/assessments/work-motivation",
+          "description":
+            "Tell more about your interests so you can find the most suitable job.",
+          "completed": false,
+          "icon": {
+            "name": "WorkOutlineIcon",
+            "color":
+              "radial-gradient(102.34% 102.34% at 50% 50%, #3BC49A 0%, #158787 100%)"
+          },
+          "progress": 20
+        },
+        {
+          "title": "English language test",
+          "url": "/assessments/english-language-test",
+          "description":
+            "You will be asked some questions about English situations to measure your knowledge.",
+          "completed": false,
+          "icon": {
+            "name": "TranslateIcon",
+            "color":
+              "radial-gradient(102.34% 102.34% at 50% 50%, #DA87AF 0%, #802C59 100%)"
+          },
+          "progress": 0
+        },
+        {
+          "title": "Visio-perceptual skills",
+          "url": "/assessments/visio-perceptual-skills",
+          "description": "We will measure your sight and hearing.",
+          "completed": false,
+          "icon": {
+            "name": "VisibilityOutlinedIcon",
+            "color":
+              "radial-gradient(102.34% 102.34% at 50% 50%, #1D66D3 0%, #06459F 100%)"
+          },
+          "progress": 80
+        },
+        {
+          "title": "Some other test",
+          "url": "/assessments/other-tests",
+          "description": "This is some other random test to observe your capabilities.",
+          "completed": true,
+          "icon": {
+            "name": "QuizOutlinedIcon",
+            "color":
+              "radial-gradient(102.34% 102.34% at 50% 50%, #8B7560 0%, #58390A 100%)"
+          },
+          "progress": 100
+        }
+      ]
+}
