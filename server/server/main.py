@@ -1,17 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(docs_url="/api/v1/docs", openapi_url="/api/v1/openapi.json")
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origin_regex="http://34.116.151.108/client.*"
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 
 mock_jobs = [{
     "id": 1,
