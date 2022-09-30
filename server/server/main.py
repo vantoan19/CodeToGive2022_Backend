@@ -59,13 +59,12 @@ mock_work_motivation_test = {
     "assessment_id": 1,
     "index": 1,
     "description": "this is description1",
-    "answered_value": 1,
+    "answered_value": 5,
     "answer": {
       "id": 123,
       "assessment_id": 1,
       "question_id": 12,
       "label": "Social",
-      "value": 5
     },
     "image": {
       "src": "https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVjZXB0aW9uaXN0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
