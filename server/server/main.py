@@ -54,59 +54,60 @@ mock_work_motivation_test = {
   "id": 1,
   "title": "Work motivation test",
   "questions": [
-    {
-      "id": 12,
+  {
+    "id": 12,
+    "assessment_id": 1,
+    "index": 1,
+    "description": "this is description1",
+    "answered_value": 1,
+    "answer": {
+      "id": 123,
       "assessment_id": 1,
-      "index": 1,
-      "description": "this is description",
-      "answered_value": 1,
-      "answers": {
-        "id": 123,
-        "assessment_id": 1,
-        "question_id": 12,
-        "label": "Social"
-      },
-      "image": {
-        "src": "https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVjZXB0aW9uaXN0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        "alt": "Alt text"
-      }
+      "question_id": 12,
+      "label": "Social",
+      "value": 5
     },
-
-    {
-      "id": 13,
-      "assessment_id": 1,
-      "index": 2,
-      "description": "this is description",
-
-      "answers": {
-        "id": 124,
-        "assessment_id": 1,
-        "question_id": 13,
-        "label": "Social"
-      },
-      "image": {
-        "src": "https://images.unsplash.com/photo-1595751866979-de6e9d606220?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFydGVuZGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        "alt": "Alt text"
-      }
+    "image": {
+      "src": "https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVjZXB0aW9uaXN0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "alt": "Alt text",
     },
-    {
-      "id": 14,
-      "assessment_id": 1,
-      "index": 3,
-      "description": "this is description",
+  },
 
-      "answers": {
-        "id": 125,
-        "assessment_id": 1,
-        "question_id": 14,
-        "label": "Social"
-      },
-      "image": {
-        "src": "https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVjZXB0aW9uaXN0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        "alt": "Alt text"
-      }
-    }
-  ]
+  {
+    "id": 13,
+    "assessment_id": 1,
+    "index": 2,
+    "description": "this is description2",
+
+    "answer": {
+      "id": 124,
+      "assessment_id": 1,
+      "question_id": 13,
+      "label": "Social",
+    },
+    "image": {
+      "src": "https://images.unsplash.com/photo-1595751866979-de6e9d606220?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFydGVuZGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "alt": "Alt text",
+    },
+  },
+  {
+    "id": 14,
+    "assessment_id": 1,
+    "index": 3,
+    "description": "this is description3",
+
+    "answer": {
+      "id": 125,
+      "assessment_id": 1,
+      "question_id": 14,
+      "label": "Social",
+    },
+    "image": {
+      "src": "https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVjZXB0aW9uaXN0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "alt": "Alt text",
+    },
+  },
+]
 }
 
 mock_assessments = [
