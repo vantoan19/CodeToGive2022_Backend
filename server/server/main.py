@@ -171,15 +171,15 @@ async def root():
     return {"message": "Hello World!"}
 
 
-@app.get("/api/v1/uuid/suggested-jobs" )
+@app.get("/api/v1/123/suggested-jobs" )
 async def get_jobs():
     return mock_jobs
 
-@app.get("/api/v1/uuid/work-motivation-test/assessment" )
+@app.get("/api/v1/123/work-motivation-test/assessment" )
 async def get_work_motivation_test():
     return mock_work_motivation_test
 
-@app.get("/api/v1/uuid/assessments")
+@app.get("/api/v1/123/assessments")
 async def get_assessments():
   return mock_assessments
 
