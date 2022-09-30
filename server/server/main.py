@@ -51,17 +51,17 @@ mock_jobs = [{
 
 
 mock_work_motivation_test = {
-  id: 1,
+  "id": 1,
   "title": "Work motivation test",
   "questions": [
     {
-      id: 12,
+      "id": 12,
       "assessment_id": 1,
       "index": 1,
       "description": "this is description",
       "answered_value": 1,
       "answers": {
-        id: 123,
+        "id": 123,
         "assessment_id": 1,
         "question_id": 12,
         "label": "Social",
@@ -73,13 +73,13 @@ mock_work_motivation_test = {
     },
 
     {
-      id: 13,
+      "id": 13,
       "assessment_id": 1,
       "index": 2,
       "description": "this is description",
 
       "answers": {
-        id: 124,
+        "id": 124,
         "assessment_id": 1,
         "question_id": 13,
         "label": "Social",
@@ -90,13 +90,13 @@ mock_work_motivation_test = {
       },
     },
     {
-      id: 14,
+      "id": 14,
       "assessment_id": 1,
       "index": 3,
       "description": "this is description",
 
       "answers": {
-        id: 125,
+        "id": 125,
         "assessment_id": 1,
         "question_id": 14,
         "label": "Social",
