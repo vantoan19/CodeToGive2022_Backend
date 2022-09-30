@@ -64,12 +64,12 @@ mock_work_motivation_test = {
         "id": 123,
         "assessment_id": 1,
         "question_id": 12,
-        "label": "Social",
+        "label": "Social"
       },
       "image": {
         "src": "https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVjZXB0aW9uaXN0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        "alt": "Alt text",
-      },
+        "alt": "Alt text"
+      }
     },
 
     {
@@ -82,12 +82,12 @@ mock_work_motivation_test = {
         "id": 124,
         "assessment_id": 1,
         "question_id": 13,
-        "label": "Social",
+        "label": "Social"
       },
       "image": {
         "src": "https://images.unsplash.com/photo-1595751866979-de6e9d606220?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFydGVuZGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        "alt": "Alt text",
-      },
+        "alt": "Alt text"
+      }
     },
     {
       "id": 14,
@@ -99,14 +99,14 @@ mock_work_motivation_test = {
         "id": 125,
         "assessment_id": 1,
         "question_id": 14,
-        "label": "Social",
+        "label": "Social"
       },
       "image": {
         "src": "https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVjZXB0aW9uaXN0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        "alt": "Alt text",
-      },
+        "alt": "Alt text"
+      }
     }
-  ],
+  ]
 }
 
 @app.get("/api/v1/hello")
