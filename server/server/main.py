@@ -163,7 +163,7 @@ mock_assessments = [
 ]
 
 mock_uuid = {
-  uuid: 123
+  "uuid": 123
 }
 
 @app.get("/api/v1/hello")
