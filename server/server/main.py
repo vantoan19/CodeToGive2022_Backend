@@ -162,6 +162,10 @@ mock_assessments = [
   },
 ]
 
+mock_uuid = {
+  uuid: 123
+}
+
 @app.get("/api/v1/hello")
 async def root():
     return {"message": "Hello World!"}
@@ -179,3 +183,6 @@ async def get_work_motivation_test():
 async def get_assessments():
   return mock_assessments
 
+@app.get("/api/v1/assessments/generate")
+async def get_uuid():
+  return mock_uuid
