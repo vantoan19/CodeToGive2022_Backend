@@ -1,9 +1,10 @@
 import enum
 
-from sqlalchemy import Column, Integer, String, Enum
-from sqlalchemy.orm import relationship 
+from sqlalchemy import Column, Enum, Integer, String
+from sqlalchemy.orm import relationship
 
 from ..db.database import Base
+
 
 class AccountType(enum.Enum):
     ADMIN = 1
@@ -23,5 +24,7 @@ class User(Base):
     account_status = Column(Enum(AccountStatus), default=AccountStatus.NOT_REGISTERED)
     first_name = Column(String)
     last_name = Column(String)
+    
     assessments = relationship("Assessment", back_populates="owner")
+    address = relationship("Address")
     
