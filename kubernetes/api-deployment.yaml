@@ -9,7 +9,7 @@ spec:
       component: api
   template:
     metadata:
-      labels: 
+      labels:
         component: api
     spec:
       containers:
@@ -21,7 +21,7 @@ spec:
             - name: REDIS_HOST
               value: redis-cluster-ip-service
             - name: REDIS_PORT
-              value: '6379'
+              value: "6379"
             - name: MYSQL_USER
               valueFrom:
                 secretKeyRef:
@@ -39,3 +39,5 @@ spec:
                 secretKeyRef:
                   name: mysql-root-password
                   key: MYSQL_ROOT_PASSWORD
+            - name: MYSQL_HOST
+              value: mysql
