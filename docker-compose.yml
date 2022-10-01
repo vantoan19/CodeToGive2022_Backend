@@ -9,6 +9,7 @@ services:
       - mysql
     volumes:
       - ./server/server:/server/server
+      - ./server/scripts:/server/scripts
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
@@ -17,6 +18,7 @@ services:
       - MYSQL_PASSWORD=mysql
       - MYSQL_DATABASE=mysql
       - MYSQL_HOST=mysql
+      - HOST_DOMAIN=http://localhost:80
   client:
     build:
       dockerfile: Dockerfile.dev

@@ -1,13 +1,15 @@
-from sqlalchemy import Column, Integer, String, Enum, ForeignKey
-from sqlalchemy.orm import relationship 
+from sqlalchemy import Column, Enum, ForeignKey, Integer, String
+from sqlalchemy.orm import relationship
 
 from ..db.database import Base
+
 
 class Assessment(Base):
     __tablename__ = "assessments"
     
-    id = Column(Integer, primary_key=True, index=True)
-    owner_id = Column(Integer, ForeignKey("users.id"))
-    hashed_id = Column(String, unique=True)
-    owner = relationship("Users", back_populates="assessments")
+    owner_id = Column(Integer, ForeignKey("users.id"), nullable=True)
+    uuid = Column(String, primary_key=True, unique=True, index=True)
+    
+    owner = relationship("User", back_populates="assessments")
+    tests = relationship("Test")
     

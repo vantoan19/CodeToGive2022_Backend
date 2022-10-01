@@ -5,9 +5,8 @@ Revises:
 Create Date: 2022-09-26 13:40:01.763647
 
 """
-from alembic import op
 import sqlalchemy as sa
-
+from alembic import op
 from server.core.models import user
 
 # revision identifiers, used by Alembic.
@@ -43,6 +42,6 @@ def upgrade() -> None:
 
 
 def downgrade() -> None:
-    op.drop_constraint("user_address_fk", table_name="users")
+    op.drop_constraint("address_user_fk", table_name="users")
     op.drop_table("addresses")
     op.drop_table("users")

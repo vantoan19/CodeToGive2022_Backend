@@ -1,16 +1,17 @@
 import enum
 
-from sqlalchemy import Column, Integer, String, Enum, ForeignKey
-from sqlalchemy.orm import relationship 
+from sqlalchemy import Column, Enum, ForeignKey, Integer, String
+from sqlalchemy.orm import relationship
 
 from ..db.database import Base
 
+
 class QuestionType(enum.Enum):
-    ABILITY_QUESTION = 1
-    MOTIVATION_QUESTION = 2
-    ENGLISH_QUESTION = 3
-    VISIO_PERCEPTUAL_QUESTION = 4
-    SOCIAL_SITUATION_QUESTION = 5
+    ABILITY_QUESTION = "ABILITY_QUESTION"
+    MOTIVATION_QUESTION = "MOTIVATION_QUESTION"
+    ENGLISH_QUESTION = "ENGLISH_QUESTION"
+    VISIO_PERCEPTUAL_QUESTION = "VISIO_PERCEPTUAL_QUESTION"
+    SOCIAL_SITUATION_QUESTION = "SOCIAL_SITUATION_QUESTION"
 
 class Question(Base):
     __tablename__ = "questions"
@@ -19,4 +20,5 @@ class Question(Base):
     type = Column(Enum(QuestionType), nullable=False)
     description = Column(String, nullable=False)
     
+    answers = relationship("Answer")
     
