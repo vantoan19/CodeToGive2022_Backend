@@ -69,6 +69,7 @@ class CRUDTest(CRUDBase[Test, TestCreate, TestUpdate]):
                 .filter(self.model.type == test_type)\
                 .first()
             logging.info(f"{type(self).__name__}: End get test of assessment uuid\={uuid}: Successful")
+            return test
         except SQLAlchemyError:
             logging.error(f"{type(self).__name__}: End get test of assessment uuid\={uuid}: Error", exc_info=True)
             raise HTTPException(status_code=500, detail=f"{type(self).__name__}: Error at querying the database")
