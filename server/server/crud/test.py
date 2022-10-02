@@ -34,11 +34,11 @@ class CRUDTest(CRUDBase[Test, TestCreate, TestUpdate]):
     def get(self, db: Session, id: int) -> Test | None:
         logging.info(f"CRUDAnswer: Start query with id\={id}")
         try:
-            answer = db.query(self.model).options(joinedload(self.model.questions).options(joinedload(Test2Question.question)))\
+            test = db.query(self.model).options(joinedload(self.model.questions).options(joinedload(Test2Question.question)))\
                 .filter(self.model.id == id).first()
                 
             logging.info(f"CRUDAnswer: End query with id\={id}: Successful")
-            return answer
+            return test
         except SQLAlchemyError:
             logging.error(f"CRUDAnswer: End query with id\={id}: Error", exc_info=True)
             raise HTTPException(status_code=500, detail=f"{type(self).__name__}: Error at querying the database")
@@ -48,7 +48,7 @@ class CRUDTest(CRUDBase[Test, TestCreate, TestUpdate]):
     ) -> List[Test]:
         logging.info(f"CRUDAnswer: Start multiple query")
         try:
-            answers = db.query(self.model)\
+            test = db.query(self.model)\
                     .options(joinedload(self.model.questions)\
                         .options(joinedload(Test2Question.question)))\
                     .offset(skip)\
@@ -56,7 +56,7 @@ class CRUDTest(CRUDBase[Test, TestCreate, TestUpdate]):
                     .all()
                     
             logging.info(f"CRUDAnswer: End multiple query: Successful")
-            return answers
+            return test
         except SQLAlchemyError:
             logging.error(f"CRUDAnswer: End multiple query: Error", exc_info=True)
             raise HTTPException(status_code=500, detail=f"{type(self).__name__}: Error at querying the database")
@@ -88,7 +88,8 @@ class CRUDTest(CRUDBase[Test, TestCreate, TestUpdate]):
         try:
             test = Test(assessment_uuid=test_info.assessment_uuid,
                         type=test_info.type, 
-                        title=test_titles[test_info.type])
+                        title=test_titles[test_info.type],
+                        description=test_info.description)
             db.add(test)
             db.flush()
             for question in questions:

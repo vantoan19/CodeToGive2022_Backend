@@ -30,13 +30,16 @@ def upgrade() -> None:
         sa.Column("id", sa.Integer(), primary_key=True, nullable=False),
         sa.Column("title", sa.String(2000)),
         sa.Column("assessment_uuid", sa.String(200), sa.ForeignKey("assessments.uuid"), nullable=False),
-        sa.Column("type", sa.dialects.mysql.ENUM(test.TestType), nullable=False)
+        sa.Column("type", sa.dialects.mysql.ENUM(test.TestType), nullable=False),
+        sa.Column("description", sa.String(10000))
     )
     op.create_table(
         "questions",
         sa.Column("id", sa.Integer(), primary_key=True, nullable=False),
         sa.Column("type", sa.dialects.mysql.ENUM(question.QuestionType), nullable=False),
-        sa.Column("description", sa.String(10000), nullable=False)
+        sa.Column("description", sa.String(10000), nullable=False),
+        sa.Column("img_url", sa.String(500)),
+        sa.Column("img_alt", sa.String(2000))
     )
     op.create_table(
         "answers",

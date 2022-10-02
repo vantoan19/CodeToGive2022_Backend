@@ -16,6 +16,8 @@ logging.basicConfig(level=logging.DEBUG ,format='%(process)d-%(levelname)s-%(mes
 
 types_of_test = [TestType.ABILITY_TEST, TestType.ENGLISH_TEST, TestType.MOTIVATION_TEST, TestType.SOCIAL_SITUATION_TEST, TestType.VISIO_PERCEPTUAL_TEST]
 
+default_desc = "Tell more about your interests so you can find the most suitable job."
+
 class CRUDAssessment(CRUDBase[Assessment, AssessmentCreate, AssessmentUpdate]):
     
     def get(self, db: Session, id: Any) -> Assessment | None:
@@ -50,7 +52,7 @@ class CRUDAssessment(CRUDBase[Assessment, AssessmentCreate, AssessmentUpdate]):
         
         for type in types_of_test:
             try:
-                test_schema = TestCreate(type=type, assessment_uuid=assessment.uuid)
+                test_schema = TestCreate(type=type, assessment_uuid=assessment.uuid, description=default_desc)
                 test_crud.generate_test(db=db, test_info=test_schema)
             except Exception as e:
                 logging.error(f"CRUDAssessment: End generate assessment: Error", exc_info=True)

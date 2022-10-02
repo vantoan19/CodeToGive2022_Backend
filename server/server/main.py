@@ -1,7 +1,8 @@
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
-from fastapi.middleware.cors import CORSMiddleware
+
 from server.api.v1.apiv1 import apiv1_router
 from server.crud import NotImplementedException
 
@@ -266,9 +267,5 @@ async def get_work_motivation_test(uuid : str):
 @app.get("/api/v1/{uuid}/assessments")
 async def get_assessments(uuid : str):
   return mock_assessments
-
-@app.get("/api/v1/assessments/generate")
-async def get_uuid():
-  return mock_uuid
 
 app.include_router(apiv1_router, prefix="/api/v1")

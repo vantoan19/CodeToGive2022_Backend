@@ -18,4 +18,3 @@ class Label(Base):
     type = Column(ENUM(LabelType), nullable=False)
     label = Column(String, unique=True, nullable=False)
     description = Column(String)
-    

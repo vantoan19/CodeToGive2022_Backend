@@ -34,7 +34,9 @@ class CRUDQuestion(CRUDBase[Question, QuestionCreate, QuestionUpdate]):
         logging.info(f"{type(self).__name__}: Start create with schema\={question_schema}")
         question = Question(
             type=question_schema.type,
-            description=question_schema.description
+            description=question_schema.description,
+            img_url=question_schema.img_url,
+            img_alt=question_schema.img_alt
         )
         try:
             db.add(question)

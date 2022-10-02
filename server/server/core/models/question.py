@@ -19,6 +19,8 @@ class Question(Base):
     id = Column(Integer, primary_key=True)
     type = Column(Enum(QuestionType), nullable=False)
     description = Column(String, nullable=False)
+    img_url = Column(String)
+    img_alt = Column(String)
     
     answers = relationship("Answer")
     

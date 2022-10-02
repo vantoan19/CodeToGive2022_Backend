@@ -13,6 +13,11 @@ class AnswerCreate(AnswerBase):
     labels: list[LabelWithScore] = []
     question_id: int
     
+class AnswerSubmit(BaseModel):
+    test_id: int
+    question_id: int
+    answer_id: int
+    
 class AnswerUpdate(AnswerBase):
     labels: list[LabelWithScore] | None = None
 

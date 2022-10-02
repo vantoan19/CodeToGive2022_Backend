@@ -6,6 +6,7 @@ from server.core.schemas.question import QuestionWithAnsweredId
 class TestBase(BaseModel):
     type: TestType 
     title: str | None
+    description: str
 
 class TestCreate(TestBase):
     assessment_uuid: str
@@ -19,6 +20,9 @@ class Test(TestBase):
     id: int = Field(alias="test_id")
     assessment_uuid: str 
     questions: list[QuestionWithAnsweredId]
+    url: str
+    completed: bool
+    progress: int
     
     class Config: 
         orm_mode = True

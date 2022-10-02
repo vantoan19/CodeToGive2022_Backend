@@ -25,22 +25,14 @@ def read_assessments(
     assessments = assessment_crud.get_multi(db=db)
     return assessments
 
-@router.get("/{assessment_uuid}/work-motivation-test", response_model=schemas.Test)
+@router.get("/{assessment_uuid}/tests", response_model=schemas.Test)
 def read_work_motivation_test_for_an_assessment_by_uuid(
     *,
     db: Session = Depends(get_db),
-    assessment_uuid: str
+    assessment_uuid: str,
+    test_type: models.TestType
 ) -> Any:
-    test = test_crud.get_test_of_an_assessment(db=db, test_type=models.TestType.MOTIVATION_TEST, uuid=assessment_uuid)
-    return test
-
-@router.get("/{assessment_uuid}/ability-questions", response_model=schemas.Test)
-def read_ability_question_test_for_an_assessment_by_uuid(
-    *,
-    db: Session = Depends(get_db),
-    assessment_uuid: str
-) -> Any:
-    test = test_crud.get_test_of_an_assessment(db=db, test_type=models.TestType.ABILITY_TEST, uuid=assessment_uuid)
+    test = test_crud.get_test_of_an_assessment(db=db, test_type=test_type, uuid=assessment_uuid)
     return test
 
 @router.post("/generate", response_model=schemas.Assessment)
