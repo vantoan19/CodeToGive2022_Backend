@@ -55,7 +55,8 @@ def create_motivation_question(
             "labels": [
                 {
                     "label": label,
-                    "score": score
+                    "score": score, 
+                    "max_score": 5
                 }
                 for label in question_info.labels
             ]

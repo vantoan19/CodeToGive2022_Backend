@@ -45,6 +45,7 @@ class Question(QuestionBase):
     id: int = Field(alias='question_id')
     type: QuestionType
     description: str
+    tags: list[str]
     answers: list[Answer]
 
     class Config:
@@ -53,6 +54,7 @@ class Question(QuestionBase):
 
 class QuestionWithAnsweredId(Question):
     answered_id: int | None
+    tags: None = None
 
 class QuestionWithLabels(Question):
     answers: list[AnswerWithLabels]

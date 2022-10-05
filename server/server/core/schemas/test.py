@@ -19,10 +19,10 @@ class TestUpdate(TestBase):
 class Test(TestBase):
     id: int = Field(alias="test_id")
     assessment_uuid: str 
-    questions: list[QuestionWithAnsweredId]
     url: str
     completed: bool
     progress: int
+    questions: list[QuestionWithAnsweredId]
     
     class Config: 
         orm_mode = True

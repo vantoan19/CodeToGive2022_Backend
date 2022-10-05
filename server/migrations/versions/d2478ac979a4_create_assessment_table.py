@@ -51,6 +51,7 @@ def upgrade() -> None:
         "labels",
         sa.Column("id", sa.Integer(), primary_key=True, nullable=False),
         sa.Column("type", sa.dialects.mysql.ENUM(label.LabelType), nullable=False),
+        sa.Column("category", sa.dialects.mysql.ENUM(label.LabelCategory), nullable=False),
         sa.Column("label", sa.String(100), unique=True, nullable=False),
         sa.Column("description", sa.String(10000))
     )
@@ -58,7 +59,8 @@ def upgrade() -> None:
         "answer2label",
         sa.Column("answer_id", sa.Integer(), sa.ForeignKey("answers.id"), primary_key=True, nullable=False, index=True),
         sa.Column("label_id", sa.Integer(), sa.ForeignKey("labels.id"), primary_key=True, nullable=False, index=True),
-        sa.Column("score", sa.Integer(), nullable=False, default=0)
+        sa.Column("score", sa.Integer(), nullable=False, default=0),
+        sa.Column("max_score", sa.Integer(), nullable=False, default=5)
     )
     op.create_table(
         "test2question",

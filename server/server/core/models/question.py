@@ -2,6 +2,7 @@ import enum
 
 from sqlalchemy import Column, Enum, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
+from sqlalchemy.ext.hybrid import hybrid_property
 
 from ..db.database import Base
 
@@ -22,4 +23,12 @@ class Question(Base):
     img_alt = Column(String)
     
     answers = relationship("Answer", cascade="all")
+    
+    @hybrid_property
+    def tags(self):
+        tags_set = set()
+        for answer in self.answers:
+            for label in answer.labels:
+                tags_set.add(label.label)
+        return list(tags_set)
     

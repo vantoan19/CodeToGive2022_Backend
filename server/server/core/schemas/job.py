@@ -13,20 +13,23 @@ class JobBase(BaseModel):
     image: str | None = None
     labels: list[LabelWithImportance] | None = None
 
+
 class JobCreate(JobBase):
     title: str
     description: str
-    company_name: str 
+    company_name: str
     labels: list[LabelWithImportance]
     address: AddressBase
 
+
 class JobUpdate(JobBase):
-    pass 
+    pass
+
 
 class Job(JobBase):
     id: int = Field(alias="job_id")
-    address: Address
-    
+    address: Address | None = None
+
     class Config:
         orm_mode = True
         allow_population_by_field_name = True

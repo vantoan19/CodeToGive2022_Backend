@@ -65,7 +65,8 @@ class CRUDAnswer(CRUDBase[Answer, AnswerCreate, AnswerUpdate]):
             answer2label = Answer2Label(
                 answer_id=answer.id,
                 label_id=db_label.id,
-                score=label_info.score
+                score=label_info.score,
+                max_score=label_info.max_score
             )
             try:
                 db.add(answer2label)

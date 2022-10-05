@@ -1,3 +1,4 @@
+from email.policy import default
 from sqlalchemy import Column, Enum, ForeignKey, Integer, String, Table
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.orm import relationship
@@ -11,6 +12,7 @@ class Answer2Label(Base):
     answer_id = Column(Integer, ForeignKey("answers.id"), primary_key=True)
     label_id = Column(Integer, ForeignKey("labels.id"), primary_key=True)
     score = Column(Integer, nullable=False, default=0)
+    max_score = Column(Integer, nullable=False, default=5)
     
     label_obj = relationship("Label")
     label = association_proxy(target_collection="label_obj", attr="label")
