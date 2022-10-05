@@ -115,7 +115,9 @@ class CRUDTest(CRUDBase[Test, TestCreate, TestUpdate]):
 
         try:
             questions = question_crud.get_by_type_randomly(
-                db=db, limit=5, question_type=test_type_to_question_type[test_info.type]
+                db=db,
+                limit=1,
+                question_type=test_type_to_question_type[test_info.type],
             )
         except Exception as e:
             logging.error(
