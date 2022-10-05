@@ -1150,15 +1150,15 @@ jobs = [
 
 
 for label in labels:
-    requests.post(url=f"http://localhost/api/v1/labels/", json=label)
+    requests.post(url=f"http://34.116.151.108/api/v1/labels/", json=label)
     sleep(1)
 
 for question in motivation_questions:
     requests.post(
-        url=f"http://localhost/api/v1/questions/motivation-question", json=question
+        url=f"http://34.116.151.108/api/v1/questions/motivation-question", json=question
     )
     sleep(1)
 
 for job in jobs:
-    requests.post(url=f"http://localhost/api/v1/jobs/", json=job)
+    requests.post(url=f"http://34.116.151.108/api/v1/jobs/", json=job)
     sleep(1)
