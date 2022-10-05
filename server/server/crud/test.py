@@ -14,7 +14,6 @@ from .question import question_crud
 logging.basicConfig(level=logging.DEBUG ,format='%(process)d-%(levelname)s-%(message)s')
 
 test_type_to_question_type = {
-    TestType.ABILITY_TEST: QuestionType.ABILITY_QUESTION,
     TestType.ENGLISH_TEST: QuestionType.ENGLISH_QUESTION,
     TestType.MOTIVATION_TEST: QuestionType.MOTIVATION_QUESTION,
     TestType.SOCIAL_SITUATION_TEST: QuestionType.SOCIAL_SITUATION_QUESTION,
@@ -22,7 +21,6 @@ test_type_to_question_type = {
 }
 
 test_titles = {
-    TestType.ABILITY_TEST: "Ability questions",
     TestType.ENGLISH_TEST: "English test",
     TestType.MOTIVATION_TEST: "Work motivation test",
     TestType.SOCIAL_SITUATION_TEST: "Interpretation of Social Situations test",

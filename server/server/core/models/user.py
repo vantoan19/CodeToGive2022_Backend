@@ -7,24 +7,26 @@ from ..db.database import Base
 
 
 class AccountType(enum.Enum):
-    ADMIN = 1
-    USER = 2
+    ADMIN = "ADMIN"
+    USER = "USER"
 
 class AccountStatus(enum.Enum):
-    NOT_REGISTERED = 1
-    REGISTERED = 2
+    NOT_REGISTERED = "NOT_REGISTERED"
+    REGISTERED = "REGISTERED"
+    DELETED = "DELETED"
 
 class User(Base):
     __tablename__ = "users"
     
     id = Column(Integer, primary_key=True, index=True, nullable=False)
-    email = Column(String, unique=True, index=True, nullable=False)
-    phone_number = Column(String, unique=True, index=True)
+    email = Column(String, unique=True, nullable=False)
+    phone_number = Column(String)
     account_type = Column(Enum(AccountType), default=AccountType.USER)
     account_status = Column(Enum(AccountStatus), default=AccountStatus.NOT_REGISTERED)
     first_name = Column(String)
     last_name = Column(String)
+    profile_img = Column(String)
     
-    assessments = relationship("Assessment", back_populates="owner")
-    address = relationship("Address")
+    assessments = relationship("Assessment")
+    address = relationship("Address", uselist=False)
     

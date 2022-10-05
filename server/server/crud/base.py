@@ -1,5 +1,4 @@
 import logging
-from signal import raise_signal
 from typing import Any, Dict, Generic, List, Optional, Type, TypeVar
 
 from fastapi import HTTPException
@@ -80,7 +79,10 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
             update_data = obj_in
         else:
             update_data = obj_in.dict(exclude_unset=True)
+        logging.info(obj_data)
         for field in obj_data:
+            logging.info(field)
+            logging.info(obj_data)
             if field in update_data:
                 setattr(db_obj, field, update_data[field])
         try:
@@ -88,15 +90,18 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
             db.commit()
             db.refresh(db_obj)
             
-            logging.info(f"{type(self).__name__}: End creating with schema\={obj_in}: Successful")
+            logging.info(f"{type(self).__name__}: End updating with schema\={obj_in}: Successful")
             return db_obj
         except SQLAlchemyError:
-            logging.error(f"{type(self).__name__}: End creating with schema\={obj_in}: Error", exc_info=True)
+            logging.error(f"{type(self).__name__}: End updating with schema\={obj_in}: Error", exc_info=True)
             raise HTTPException(status_code=500, detail=f"{type(self).__name__}: Error at committing in the database")
 
     def remove(self, db: Session, *, id: int) -> ModelType:
         logging.info(f"{type(self).__name__}: Start removing id\={id}")
         obj = db.query(self.model).get(id)
+        if not obj:
+            logging.error(f"{type(self).__name__}: End removing id\={id}: Not exist")
+            raise HTTPException(status_code=404, detail=f"{type(self).__name__}: Question does not exist")
         try:
             db.delete(obj)
             db.commit()

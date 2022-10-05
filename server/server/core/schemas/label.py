@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from server.core.models import LabelType
 
 
@@ -12,7 +12,15 @@ class LabelWithScore(LabelBase):
     class Config:
         orm_mode = True
         allow_population_by_field_name = True
+
+class LabelWithImportance(LabelBase):
+    label: str 
+    lower_importance_bound: int = 1
+    upper_importance_bound: int = 5
     
+    class Config:
+        orm_mode = True
+        allow_population_by_field_name = True
 
 class LabelCreate(LabelBase):
     type: LabelType = LabelType.NON_REQUIRED_LABEL

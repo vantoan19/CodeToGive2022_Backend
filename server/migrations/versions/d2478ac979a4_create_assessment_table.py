@@ -81,6 +81,8 @@ def upgrade() -> None:
                           local_cols=["question_id"], remote_cols=["id"], onupdate="CASCADE", ondelete="CASCADE")
     op.create_foreign_key("test2question_answer_fk", source_table="test2question", referent_table="answers",
                           local_cols=["answered_id"], remote_cols=["id"], onupdate="CASCADE", ondelete="CASCADE")
+    op.create_foreign_key("assessment_user_fk", source_table="assessments", referent_table="users",
+                          local_cols=["owner_id"], remote_cols=["id"], onupdate="CASCADE", ondelete="RESTRICT")
 
 
 def downgrade() -> None:

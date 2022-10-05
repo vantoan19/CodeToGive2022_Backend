@@ -24,5 +24,5 @@ class Answer(Base):
     description = Column(String, nullable=False)
     question_id = Column(Integer, ForeignKey("questions.id"), index=True)
     
-    labels = relationship("Answer2Label")
+    labels = relationship("Answer2Label", cascade="all")
     

@@ -14,7 +14,7 @@ from .test import test_crud
 
 logging.basicConfig(level=logging.DEBUG ,format='%(process)d-%(levelname)s-%(message)s')
 
-types_of_test = [TestType.ABILITY_TEST, TestType.ENGLISH_TEST, TestType.MOTIVATION_TEST, TestType.SOCIAL_SITUATION_TEST, TestType.VISIO_PERCEPTUAL_TEST]
+types_of_test = [TestType.ENGLISH_TEST, TestType.MOTIVATION_TEST, TestType.SOCIAL_SITUATION_TEST, TestType.VISIO_PERCEPTUAL_TEST]
 
 default_desc = "Tell more about your interests so you can find the most suitable job."
 
@@ -34,8 +34,21 @@ class CRUDAssessment(CRUDBase[Assessment, AssessmentCreate, AssessmentUpdate]):
             logging.error(f"CRUDAssessment: End query with uuid\={uuid}: Error", exc_info=True)
             raise HTTPException(status_code=500, detail=f"{type(self).__name__}: Error at querying the database")
     
-    def update(self, db: Session, *, db_obj: Assessment, obj_in: AssessmentUpdate | Dict[str, Any]) -> Assessment:
-        raise NotImplementedException(crud_component="Assessment", crud_operation="Update")
+    def create(self, db: Session) -> Assessment:
+        logging.info(f"{type(self).__name__}: Start creating")
+        uuid = generate_unique_uuid()
+        assessment = Assessment(uuid=uuid)
+        try:
+            db.add(assessment)
+            db.commit()
+            db.refresh(assessment)
+            
+            logging.info(f"{type(self).__name__}: End creating: Successful")
+            return assessment
+        except SQLAlchemyError:
+            logging.error(f"{type(self).__name__}: End creating : Error", exc_info=True)
+            db.rollback()
+            raise HTTPException(status_code=500, detail=f"{type(self).__name__}: Error at committing in the database")
     
     def generate_assessment(self, db: Session) -> Assessment:
         logging.info(f"CRUDAssessment: Start generate assessment")

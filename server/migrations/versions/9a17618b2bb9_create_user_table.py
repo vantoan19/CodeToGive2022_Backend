@@ -5,6 +5,8 @@ Revises:
 Create Date: 2022-09-26 13:40:01.763647
 
 """
+from enum import unique
+
 import sqlalchemy as sa
 from alembic import op
 from server.core.models import user
@@ -20,15 +22,17 @@ def upgrade() -> None:
         "users",
         sa.Column("id", sa.Integer(), primary_key=True, index=True, nullable=False),
         sa.Column("email", sa.String(100), unique=True, index=True, nullable=False),
+        sa.Column("phone_number", sa.String(20)),
         sa.Column("account_type", sa.Enum(user.AccountType), default=user.AccountType.USER),
         sa.Column("account_status", sa.Enum(user.AccountStatus), default=user.AccountStatus.NOT_REGISTERED),
         sa.Column("first_name", sa.String(50)),
         sa.Column("last_name", sa.String(50)),
+        sa.Column("profile_img", sa.String(500)),
     )
     op.create_table(
         "addresses",
         sa.Column("id", sa.Integer(), primary_key=True, index=True, nullable=False),
-        sa.Column("user_id", sa.Integer(), sa.ForeignKey("users.id")),
+        sa.Column("user_id", sa.Integer(), sa.ForeignKey("users.id"), nullable=True),
         sa.Column("street_line_1", sa.String(100)),
         sa.Column("street_line_2", sa.String(100)),
         sa.Column("district", sa.String(30)),

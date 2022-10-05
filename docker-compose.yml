@@ -9,7 +9,7 @@ services:
       - mysql
     volumes:
       - ./server/server:/server/server
-      - ./server/scripts:/server/scripts
+      - ./server/migrations:/server/migrations
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379

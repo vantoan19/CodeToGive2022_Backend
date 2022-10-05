@@ -8,7 +8,8 @@ class Address(Base):
     __tablename__ = "addresses"
     
     id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=True)
+    job_id = Column(Integer, ForeignKey("jobs.id"), nullable=True)
     street_line_1 = Column(String)
     street_line_2 = Column(String)
     district = Column(String)

@@ -1,21 +1,22 @@
 from pydantic import BaseModel
-from server.core.schemas.test import Test
-
 
 class AssessmentBase(BaseModel):
     uuid: str
     
-class AssessmentCreate(AssessmentBase):
+class AssessmentCreate(BaseModel):
     pass
 
-# No support in assessment update
-# Reason: assessment are automatically generated
+class AssessmentSubmit(BaseModel):
+    uuid: str 
+    first_name: str 
+    last_name: str 
+    email: str 
+    phone_number: str
+
 class AssessmentUpdate(AssessmentBase):
-    pass
-
-class Assessment(AssessmentBase):
+    uuid: str | None = None
     owner_id: int | None = None
-    tests: list[Test]
-    
+
+class AssessmentWithOnlyUuid(AssessmentBase):
     class Config:
         orm_mode = True

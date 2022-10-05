@@ -1,9 +1,13 @@
 from .answer import (Answer, AnswerBase, AnswerCreate, AnswerSubmit,
-                     AnswerUpdate)
-from .assessment import (Assessment, AssessmentBase, AssessmentCreate,
-                         AssessmentUpdate)
-from .label import Label, LabelBase, LabelCreate, LabelUpdate, LabelWithScore
+                     AnswerUpdate, AnswerWithLabels)
+from .assessment import (AssessmentBase, AssessmentCreate,
+                         AssessmentUpdate, AssessmentWithOnlyUuid, AssessmentSubmit)
+from .job import Job, JobBase, JobCreate, JobUpdate
+from .label import (Label, LabelBase, LabelCreate, LabelUpdate,
+                    LabelWithImportance, LabelWithScore)
 from .question import (MotivationQuestionCreate, Question, QuestionBase,
-                       QuestionCreate, QuestionUpdate, QuestionWithAnsweredId)
+                       QuestionCreate, QuestionUpdate, QuestionWithAnsweredId,
+                       QuestionWithLabels)
 from .test import Test, TestBase, TestCreate, TestUpdate
-from .user import User, UserBase, UserCreate, UserUpdate, UserWithAssessment
+from .user import User, UserBase, UserCreate, UserUpdate
+from .user_assessment import UserWithAssessment, Assessment

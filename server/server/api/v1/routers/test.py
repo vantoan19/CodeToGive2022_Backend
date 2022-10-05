@@ -16,6 +16,8 @@ def read_test(
     test_id: int
 ) -> Any:
     test = test_crud.get(db=db, id=test_id)
+    if not test:
+        raise HTTPException(status_code=404, detail="test not found")
     return test
 
 @router.get("/", response_model=List[schemas.Test])

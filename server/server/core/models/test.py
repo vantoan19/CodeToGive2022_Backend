@@ -37,7 +37,6 @@ class Test2Question(Base):
     img_alt = association_proxy(target_collection="question", attr="img_alt")
 
 class TestType(enum.Enum):
-    ABILITY_TEST = "ABILITY_TEST"
     MOTIVATION_TEST = "MOTIVATION_TEST"
     ENGLISH_TEST = "ENGLISH_TEST"
     VISIO_PERCEPTUAL_TEST = "VISIO_PERCEPTUAL_TEST"

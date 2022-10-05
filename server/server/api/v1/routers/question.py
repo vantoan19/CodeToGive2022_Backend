@@ -1,5 +1,5 @@
 import logging
-from typing import Any, List
+from typing import Any, List, Optional
 
 from fastapi import APIRouter, Depends, HTTPException
 from server.api.deps import get_db
@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.DEBUG ,format='%(process)d-%(levelname)s-%(mes
 
 router = APIRouter()
 
-@router.get("/", response_model=List[schemas.Question])
+@router.get("/", response_model=List[schemas.QuestionWithLabels])
 def read_all_questions(
     db: Session = Depends(get_db),
     skip: int = 0, 
@@ -23,13 +23,15 @@ def read_all_questions(
         questions = list(filter(lambda question: question.type == type ,questions))
     return questions
 
-@router.get("/{question_id}", response_model=schemas.Question)
+@router.get("/{question_id}", response_model=Optional[schemas.Question])
 def read_question(
     *,
     db: Session = Depends(get_db),
     question_id: int,
 ) -> Any:
     question = question_crud.get(db=db, id=question_id)
+    if not question:
+        raise HTTPException(status_code=404, detail="question not found")
     return question
 
 @router.post("/", response_model=schemas.Question)
@@ -69,3 +71,26 @@ def create_motivation_question(
     )
     question = question_crud.create(db=db, question_schema=create_schema)
     return question
+
+@router.put("/{question_id}", response_model=schemas.Question)
+def update_question(
+    *,
+    db: Session = Depends(get_db),
+    question_id: int,
+    question_info: schemas.QuestionUpdate
+):
+    question = question_crud.get(db=db, id=question_id)
+    question = question_crud.update(db=db, db_obj=question, obj_in=question_info)
+    return question
+
+@router.delete("/{question_id}")
+def delete_a_question(
+    *,
+    db: Session = Depends(get_db),
+    question_id: int
+):
+    question_crud.remove(db=db, id=question_id)
+    return {
+        "message": "Deleted the question successfully"
+    }
+    

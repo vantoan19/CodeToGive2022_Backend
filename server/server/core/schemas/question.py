@@ -1,13 +1,13 @@
 from pydantic import BaseModel, Field, validator
 from server.core.models.question import QuestionType
 from server.core.schemas.answer import (Answer, AnswerBase,
-                                        AnswerCreateWithoutQuestionId)
+                                        AnswerCreateWithoutQuestionId,
+                                        AnswerWithLabels)
 
 
 class QuestionBase(BaseModel):
     type: QuestionType | None = None
     description: str | None = None
-    answers: list[AnswerBase] | None = None
     img_url: str | None = None
     img_alt: str | None = None
     
@@ -37,7 +37,9 @@ class MotivationQuestionCreate(BaseModel):
         return v
 
 class QuestionUpdate(QuestionBase):
-    pass
+    @validator('img_alt')
+    def img_alt(cls, v):
+        return v
 
 class Question(QuestionBase):
     id: int = Field(alias='question_id')
@@ -51,3 +53,6 @@ class Question(QuestionBase):
 
 class QuestionWithAnsweredId(Question):
     answered_id: int | None
+
+class QuestionWithLabels(Question):
+    answers: list[AnswerWithLabels]

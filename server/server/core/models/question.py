@@ -7,7 +7,6 @@ from ..db.database import Base
 
 
 class QuestionType(enum.Enum):
-    ABILITY_QUESTION = "ABILITY_QUESTION"
     MOTIVATION_QUESTION = "MOTIVATION_QUESTION"
     ENGLISH_QUESTION = "ENGLISH_QUESTION"
     VISIO_PERCEPTUAL_QUESTION = "VISIO_PERCEPTUAL_QUESTION"
@@ -22,5 +21,5 @@ class Question(Base):
     img_url = Column(String)
     img_alt = Column(String)
     
-    answers = relationship("Answer")
+    answers = relationship("Answer", cascade="all")
     
