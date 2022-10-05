@@ -336,7 +336,7 @@ jobs = [
         "labels": [
             {
                 "label": "Intellectuality",
-                "lower_importance_bound": 1,
+                "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
@@ -345,48 +345,28 @@ jobs = [
                 "upper_importance_bound": 5,
             },
             {
-                "label": "Finances/Money",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Variety",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
                 "label": "Independence",
-                "lower_importance_bound": 1,
+                "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
                 "label": "Prestige",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Aesthetics",
-                "lower_importance_bound": 1,
+                "lower_importance_bound": 4,
                 "upper_importance_bound": 5,
             },
             {
                 "label": "Relationships",
-                "lower_importance_bound": 1,
+                "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
                 "label": "Playfulness",
-                "lower_importance_bound": 1,
+                "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
                 "label": "Self-fulfilment",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Hierarchy",
-                "lower_importance_bound": 1,
+                "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
@@ -396,17 +376,7 @@ jobs = [
             },
             {
                 "label": "Job performance",
-                "lower_importance_bound": 2,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Creativity",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Leadership",
-                "lower_importance_bound": 1,
+                "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
         ],
@@ -437,17 +407,12 @@ jobs = [
             },
             {
                 "label": "Finances/Money",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Variety",
-                "lower_importance_bound": 1,
+                "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
                 "label": "Independence",
-                "lower_importance_bound": 2,
+                "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
@@ -456,18 +421,13 @@ jobs = [
                 "upper_importance_bound": 5,
             },
             {
-                "label": "Aesthetics",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
                 "label": "Relationships",
-                "lower_importance_bound": 1,
+                "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
                 "label": "Playfulness",
-                "lower_importance_bound": 1,
+                "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
@@ -482,22 +442,12 @@ jobs = [
             },
             {
                 "label": "Human values",
-                "lower_importance_bound": 3,
+                "lower_importance_bound": 4,
                 "upper_importance_bound": 5,
             },
             {
                 "label": "Job performance",
                 "lower_importance_bound": 3,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Creativity",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Leadership",
-                "lower_importance_bound": 1,
                 "upper_importance_bound": 5,
             },
         ],
@@ -517,38 +467,28 @@ jobs = [
         "image": "https://images.unsplash.com/photo-1595751866979-de6e9d606220?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFydGVuZGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
         "labels": [
             {
-                "label": "Intellectuality",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
                 "label": "Altruism/Caring",
                 "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
-                "label": "Finances/Money",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
                 "label": "Variety",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Independence",
-                "lower_importance_bound": 2,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Prestige",
                 "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
+                "label": "Independence",
+                "lower_importance_bound": 3,
+                "upper_importance_bound": 5,
+            },
+            {
+                "label": "Prestige",
+                "lower_importance_bound": 4,
+                "upper_importance_bound": 5,
+            },
+            {
                 "label": "Aesthetics",
-                "lower_importance_bound": 1,
+                "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
@@ -567,13 +507,8 @@ jobs = [
                 "upper_importance_bound": 5,
             },
             {
-                "label": "Hierarchy",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
                 "label": "Human values",
-                "lower_importance_bound": 2,
+                "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
@@ -584,11 +519,6 @@ jobs = [
             {
                 "label": "Creativity",
                 "lower_importance_bound": 3,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Leadership",
-                "lower_importance_bound": 1,
                 "upper_importance_bound": 5,
             },
         ],
@@ -608,38 +538,23 @@ jobs = [
         "image": "https://images.unsplash.com/photo-1595751866979-de6e9d606220?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFydGVuZGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
         "labels": [
             {
-                "label": "Intellectuality",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
                 "label": "Altruism/Caring",
                 "lower_importance_bound": 2,
                 "upper_importance_bound": 5,
             },
             {
-                "label": "Finances/Money",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Variety",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
                 "label": "Independence",
-                "lower_importance_bound": 2,
+                "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
                 "label": "Prestige",
-                "lower_importance_bound": 2,
+                "lower_importance_bound": 4,
                 "upper_importance_bound": 5,
             },
             {
                 "label": "Aesthetics",
-                "lower_importance_bound": 1,
+                "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
@@ -649,7 +564,7 @@ jobs = [
             },
             {
                 "label": "Playfulness",
-                "lower_importance_bound": 2,
+                "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
@@ -658,28 +573,8 @@ jobs = [
                 "upper_importance_bound": 5,
             },
             {
-                "label": "Hierarchy",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Human values",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
                 "label": "Job performance",
                 "lower_importance_bound": 4,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Creativity",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Leadership",
-                "lower_importance_bound": 1,
                 "upper_importance_bound": 5,
             },
         ],
@@ -699,18 +594,8 @@ jobs = [
         "image": "https://plus.unsplash.com/premium_photo-1663050981532-613cd5e4cc91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGFpbG9yfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
         "labels": [
             {
-                "label": "Intellectuality",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
                 "label": "Altruism/Caring",
                 "lower_importance_bound": 4,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Finances/Money",
-                "lower_importance_bound": 1,
                 "upper_importance_bound": 5,
             },
             {
@@ -734,28 +619,13 @@ jobs = [
                 "upper_importance_bound": 5,
             },
             {
-                "label": "Relationships",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
                 "label": "Playfulness",
                 "lower_importance_bound": 2,
                 "upper_importance_bound": 5,
             },
             {
                 "label": "Self-fulfilment",
-                "lower_importance_bound": 3,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Hierarchy",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Human values",
-                "lower_importance_bound": 1,
+                "lower_importance_bound": 4,
                 "upper_importance_bound": 5,
             },
             {
@@ -765,12 +635,7 @@ jobs = [
             },
             {
                 "label": "Creativity",
-                "lower_importance_bound": 3,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Leadership",
-                "lower_importance_bound": 1,
+                "lower_importance_bound": 4,
                 "upper_importance_bound": 5,
             },
         ],
@@ -790,18 +655,8 @@ jobs = [
         "image": "https://images.unsplash.com/photo-1519226271816-35674b1074db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d29vZCUyMGN1dHRlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
         "labels": [
             {
-                "label": "Intellectuality",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
                 "label": "Altruism/Caring",
                 "lower_importance_bound": 4,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Finances/Money",
-                "lower_importance_bound": 1,
                 "upper_importance_bound": 5,
             },
             {
@@ -825,11 +680,6 @@ jobs = [
                 "upper_importance_bound": 5,
             },
             {
-                "label": "Relationships",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
                 "label": "Playfulness",
                 "lower_importance_bound": 2,
                 "upper_importance_bound": 5,
@@ -840,16 +690,6 @@ jobs = [
                 "upper_importance_bound": 5,
             },
             {
-                "label": "Hierarchy",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Human values",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
                 "label": "Job performance",
                 "lower_importance_bound": 4,
                 "upper_importance_bound": 5,
@@ -857,11 +697,6 @@ jobs = [
             {
                 "label": "Creativity",
                 "lower_importance_bound": 3,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Leadership",
-                "lower_importance_bound": 1,
                 "upper_importance_bound": 5,
             },
         ],
@@ -882,7 +717,7 @@ jobs = [
         "labels": [
             {
                 "label": "Intellectuality",
-                "lower_importance_bound": 2,
+                "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
@@ -892,7 +727,7 @@ jobs = [
             },
             {
                 "label": "Finances/Money",
-                "lower_importance_bound": 1,
+                "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
             },
             {
@@ -911,11 +746,6 @@ jobs = [
                 "upper_importance_bound": 5,
             },
             {
-                "label": "Aesthetics",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
                 "label": "Relationships",
                 "lower_importance_bound": 1,
                 "upper_importance_bound": 5,
@@ -931,11 +761,6 @@ jobs = [
                 "upper_importance_bound": 5,
             },
             {
-                "label": "Hierarchy",
-                "lower_importance_bound": 1,
-                "upper_importance_bound": 5,
-            },
-            {
                 "label": "Human values",
                 "lower_importance_bound": 3,
                 "upper_importance_bound": 5,
@@ -948,11 +773,6 @@ jobs = [
             {
                 "label": "Creativity",
                 "lower_importance_bound": 4,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Leadership",
-                "lower_importance_bound": 1,
                 "upper_importance_bound": 5,
             },
         ],
@@ -999,11 +819,6 @@ jobs = [
             {
                 "label": "Prestige",
                 "lower_importance_bound": 4,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Aesthetics",
-                "lower_importance_bound": 1,
                 "upper_importance_bound": 5,
             },
             {
@@ -1090,11 +905,6 @@ jobs = [
             {
                 "label": "Prestige",
                 "lower_importance_bound": 4,
-                "upper_importance_bound": 5,
-            },
-            {
-                "label": "Aesthetics",
-                "lower_importance_bound": 1,
                 "upper_importance_bound": 5,
             },
             {

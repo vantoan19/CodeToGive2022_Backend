@@ -13,7 +13,7 @@ from .assessment import (
     AssessmentWithOnlyUuid,
     AssessmentSubmit,
 )
-from .job import Job, JobBase, JobCreate, JobUpdate
+from .job import Job, JobBase, JobCreate, JobUpdate, JobWithMatchScore
 from .label import (
     Label,
     LabelBase,

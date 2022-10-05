@@ -36,28 +36,21 @@ def count_achieved_labels(label_scores: defaultdict, job: Job):
     label_cnt = 0
     for key in label_scores:
         job_label = find_job_label(key, job)
-        logging.info(f"LOW: {(job_label.lower_importance_bound-1)*20}")
-        logging.info(f"UP: {(job_label.upper_importance_bound)*20}")
-        logging.info(f"Score: {label_scores[key]}")
+        if not job_label:
+            continue
         if (
             (job_label.lower_importance_bound - 1) * 20
             <= label_scores[key]
             < job_label.upper_importance_bound * 20
         ):
             label_cnt += 1
-    logging.info(f"CNT: {label_cnt}")
-    logging.info(job.title)
     return label_cnt
 
 
-def compare(a: Job, b: Job, label_scores: defaultdict):
-    if count_achieved_labels(label_scores=label_scores, job=a) > count_achieved_labels(
-        label_scores=label_scores, job=b
-    ):
+def compare(a: Job, b: Job):
+    if a.match_score > b.match_score:
         return -1
-    elif count_achieved_labels(
-        label_scores=label_scores, job=a
-    ) < count_achieved_labels(label_scores=label_scores, job=b):
+    elif a.match_score < b.match_score:
         return 1
     else:
         return 0
@@ -88,9 +81,12 @@ def get_suggestion_jobs_for_assessment(db: Session, uuid: str):
             if label_max_scores[key] == 0
             else label_scores[key] * 100 // label_max_scores[key]
         )
-    all_jobs = parse_obj_as(List[schemas.Job], job_crud.get_multi(db=db))
-    binded_compare = lambda a, b: compare(a=a, b=b, label_scores=label_actual_scores)
-    return sorted(all_jobs, key=cmp_to_key(binded_compare))[:8]
+    all_jobs = job_crud.get_multi(db=db)
+    for job in all_jobs:
+        job.match_score = count_achieved_labels(
+            label_scores=label_actual_scores, job=job
+        )
+    return sorted(all_jobs, key=cmp_to_key(compare))[:8]
 
 
 def get_assessment_report(db: Session, uuid: str) -> List[LabelWithTotalScore]:

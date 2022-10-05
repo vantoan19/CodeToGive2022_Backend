@@ -78,7 +78,7 @@ def submit_assessment(
     )
 
 
-@router.get("/{uuid}/suggested-jobs", response_model=List[schemas.Job])
+@router.get("/{uuid}/suggested-jobs", response_model=List[schemas.JobWithMatchScore])
 def get_suggested_jobs(*, db: Session = Depends(get_db), uuid: str) -> Any:
     result = get_suggestion_jobs_for_assessment(db, uuid=uuid)
     return result
